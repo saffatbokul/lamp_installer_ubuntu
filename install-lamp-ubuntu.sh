@@ -6,6 +6,8 @@ sudo dpkg -i mysql-apt-config_0.8.16-1_all.deb
 sudo apt-get update
 
 sudo apt install mysql-client mysql-community-server mysql-server
+sudo mysql_secure_installation
+
 
 sudo apt install apache2 php php-mysql libapache2-mod-php php-cli
 
@@ -21,9 +23,8 @@ sudo ufw allow in "Apache Full"
 # Allow Read/Write for Owner
 sudo chmod -R 0755 /var/www/html/
 
-# Create info.php for testing php processing
-sudo echo "<?php phpinfo(); ?>" > /var/www/html/info.php
+sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
 
-# Open localhost in the default browser
-xdg-open "http://localhost"
-xdg-open "http://localhost/info.php"
+sudo systemctl restart apache2
+
+mysql -u root -p
